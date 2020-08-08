@@ -1,18 +1,46 @@
-//this creates a function named "fight"
 var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
 
-//this logs the input's name
-console.log(playerName)
+console.log(playerName, playerAttack, playerHealth);
 
-//this is a normal string line for making a note or debugging multiple lines of code at once
-console.log("This log is a string, good for leaving yourself a message")
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-//this will do math and log 20
-console.log(10 + 10)
+var fight = function() {
+    //Alert user they are starting a round
+    window.alert("Welcome to Robot Gladiators!");
 
-//This is how to make a note with a string and a variable
-console.log("Our Robot's name is " + playerName)
-function fight() {
-    window.alert("the fight has begun!");
-}
-//fight();
+    //Subtract the value of playerAttack from enemyHealth and use the result to upate the value in enemyHelath variable
+    enemyHealth = enemyHealth - playerAttack;
+
+    // Log a resulting message to the console so we know that it worked.
+    console.log(
+      playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+    );
+
+    //check enemy's health
+    if(enemyHealth<= 0) {
+        window.alert(enemyName + "Has died!");
+    }
+    else {
+        window.alert(enemyName + " still has " +enemyHealth +" health left.");
+    }
+    // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable.
+        playerHealth = playerHealth - enemyAttack;
+
+    // Log a resulting message to the console so we know that it worked.
+    console.log(
+        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+    );
+
+    //check player's health
+    if(playerHealth <=0) {
+        window.alert(playerName + " Has died!");
+    }
+    else {
+        window.alert(playerName + " still has " +playerHealth +" health left.");
+    }
+    }
+fight();
